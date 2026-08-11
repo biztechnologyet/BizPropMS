@@ -43,9 +43,17 @@
   "amenity_name",
   "property_meters_section",
   "property_meter_reading",
-  "description_section",
-  "description",
-  "lft",
+   "description_section",
+   "description",
+   "shop_tab",
+   "shop_section",
+   "publish_on_shop",
+   "shop_offer_type",
+   "shop_price",
+   "column_break_shop",
+   "shop_image",
+   "shop_warehouse",
+   "lft",
   "rgt",
   "old_parent",
   "lease_increment_setup_tab",
@@ -231,13 +239,61 @@
    "fieldname": "description_section",
    "fieldtype": "Section Break"
   },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "DESCRIPTION"
-  },
-  {
-   "fieldname": "lease_increment_setup_tab",
+   {
+    "fieldname": "description",
+    "fieldtype": "Text",
+    "label": "DESCRIPTION"
+   },
+   {
+    "fieldname": "shop_tab",
+    "fieldtype": "Tab Break",
+    "label": "Online Shop"
+   },
+   {
+    "fieldname": "shop_section",
+    "fieldtype": "Section Break",
+    "label": "Publish to Website"
+   },
+   {
+    "default": "0",
+    "description": "When enabled, this property is published automatically on the website shop (/all-products).",
+    "fieldname": "publish_on_shop",
+    "fieldtype": "Check",
+    "label": "Publish on Shop"
+   },
+   {
+    "depends_on": "publish_on_shop",
+    "fieldname": "shop_offer_type",
+    "fieldtype": "Select",
+    "label": "Shop Offer Type",
+    "options": "For Rent\nFor Sale\nFor Rent or Sale"
+   },
+   {
+    "depends_on": "publish_on_shop",
+    "description": "Monthly rent (For Rent) or one-time price (For Sale) shown on the shop.",
+    "fieldname": "shop_price",
+    "fieldtype": "Currency",
+    "label": "Shop Price"
+   },
+   {
+    "fieldname": "column_break_shop",
+    "fieldtype": "Column Break"
+   },
+   {
+    "depends_on": "publish_on_shop",
+    "fieldname": "shop_image",
+    "fieldtype": "Attach",
+    "label": "Shop Image"
+   },
+   {
+    "depends_on": "publish_on_shop",
+    "fieldname": "shop_warehouse",
+    "fieldtype": "Link",
+    "label": "Shop Warehouse",
+    "options": "Warehouse"
+   },
+   {
+    "fieldname": "lease_increment_setup_tab",
    "fieldtype": "Tab Break",
    "label": "Lease Increment Settings"
   },

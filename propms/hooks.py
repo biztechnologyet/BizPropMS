@@ -11,6 +11,8 @@ app_color = "grey"
 app_email = "info@ethiobiz.et"
 app_license = "MIT"
 
+required_apps = ["erpnext"]
+
 # Includes in <head>
 # ------------------
 
@@ -109,6 +111,8 @@ doc_events = {
     },
     "Property": {
         "validate": "propms.property_increment.validate_property_increment_settings",
+        "after_save": "propms.shop_bridge.bridge.sync_property_to_shop",
+        "after_delete": "propms.shop_bridge.bridge.unpublish_property",
     },
     "Material Request": {
         "validate": "propms.auto_custom.makeSalesInvoice",
