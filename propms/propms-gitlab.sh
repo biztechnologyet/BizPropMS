@@ -8,7 +8,7 @@ fi
 
 
 vi apps/propms/propms/__init__.py
-bench --site dev-propms.aakvatech.com export-fixtures
+bench --site dev-propms.ethiobiz.et export-fixtures
 cd apps/propms
 git add .
 git commit -m "$1"

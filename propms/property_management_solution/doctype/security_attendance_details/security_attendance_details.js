@@ -1,4 +1,4 @@
-// Copyright (c) 2018, Aakvatech and contributors
+// Copyright (c) 2018, Biz Technology Solutions and contributors
 // For license information, please see license.txt
 
 cur_frm.set_query("guard_empid", function() {

@@ -1,4 +1,4 @@
-// Copyright (c) 2016, Aakvatech and contributors
+// Copyright (c) 2016, Biz Technology Solutions and contributors
 // For license information, please see license.txt
 /* eslint-disable */
 var months = "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"

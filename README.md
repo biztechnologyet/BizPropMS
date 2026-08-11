@@ -2,7 +2,7 @@
 
 PropMS is a Frappe and ERPNext v15 app for managing real estate and property operations from inside ERPNext. It adds property records, lease records, lease billing schedules, meter readings, maintenance material billing, security and outsourcing attendance, daily checklists, key and tool custody, print formats, and reports.
 
-The app is published by Aakvatech and is designed for organizations that want property operations to connect directly with ERPNext customers, items, invoices, sales orders, stock, accounts, cost centers, employees, and reports.
+The app is published by Biz Technology Solutions and is designed for organizations that want property operations to connect directly with ERPNext customers, items, invoices, sales orders, stock, accounts, cost centers, employees, and reports.
 
 ## Business Summary
 
@@ -244,7 +244,7 @@ This conclusion is based on `pyproject.toml`, ERPNext imports, and the app's use
 Install this app on a Frappe/ERPNext v15 bench site.
 
 ```bash
-bench get-app https://github.com/aakvatech/PropMS.git --branch <v15-branch-or-tag>
+bench get-app https://github.com/biztechnologyet/PropMS.git --branch <v15-branch-or-tag>
 bench --site your-site.local install-app propms
 bench --site your-site.local migrate
 ```
@@ -254,7 +254,7 @@ For a local development bench:
 ```bash
 bench new-site propms.local
 bench --site propms.local install-app erpnext
-bench get-app https://github.com/aakvatech/PropMS.git --branch <v15-branch-or-tag>
+bench get-app https://github.com/biztechnologyet/PropMS.git --branch <v15-branch-or-tag>
 bench --site propms.local install-app propms
 bench --site propms.local migrate
 ```
@@ -457,7 +457,7 @@ Scheduled events:
 ## Developer Setup
 
 ```bash
-bench get-app https://github.com/aakvatech/PropMS.git --branch <v15-branch-or-tag>
+bench get-app https://github.com/biztechnologyet/PropMS.git --branch <v15-branch-or-tag>
 bench --site your-site.local install-app propms
 bench --site your-site.local migrate
 ```
@@ -550,7 +550,7 @@ Custom fields, property setters, financial documents, stock documents, and prope
 | File or Area | Evidence Found |
 |---|---|
 | `pyproject.toml` | App name, Python requirement, Frappe and ERPNext v15 dependencies |
-| `setup.py` | Package metadata and Aakvatech author details; references missing `requirements.txt` |
+| `setup.py` | Package metadata and Biz Technology Solutions author details; references missing `requirements.txt` |
 | `propms/__init__.py` | App version `15.2.1` |
 | `propms/hooks.py` | App metadata, install hooks, document events, scheduler events, client scripts |
 | `propms/modules.txt` | Module name `Property Management Solution` |
@@ -583,9 +583,9 @@ Custom fields, property setters, financial documents, stock documents, and prope
 
 ## Support and Maintenance
 
-Publisher: Aakvatech  
-Email: info@aakvatech.com  
-Website: https://aakvatech.com
+Publisher: Biz Technology Solutions  
+Email: info@ethiobiz.et  
+Website: https://ethiobiz.et
 
 For production deployments, confirm the maintained branch, support process, and upgrade policy with the maintainers.
 
@@ -611,5 +611,5 @@ To confirm before publishing. The `LICENSE` file states `GPL`, while `propms/hoo
 
 ## Maintainers
 
-- Aakvatech
-- info@aakvatech.com
+- Biz Technology Solutions
+- info@ethiobiz.et

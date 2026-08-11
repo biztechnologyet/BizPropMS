@@ -6,7 +6,7 @@ without direct access to the repo.
 
 ## What this app is
 
-PropMS is a custom Frappe app for property management, built by Aakvatech.
+PropMS is a custom Frappe app for property management, built by Biz Technology Solutions.
 Notable features: OpenImmo XML export (XSD schema, `openimmo_anid` field,
 `kontaktperson` sequence validation), property inspection workflows.
 

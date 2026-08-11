@@ -1,4 +1,4 @@
-# Copyright (c) 2013, Aakvatech and contributors
+# Copyright (c) 2013, Biz Technology Solutions and contributors
 # For license information, please see license.txt
 
 from __future__ import unicode_literals

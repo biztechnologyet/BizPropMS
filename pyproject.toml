@@ -1,7 +1,7 @@
 [project]
 name = "propms"
 authors = [
-    { name = "Aakvatech", email = "info@aakvatech.com" }
+    { name = "Biz Technology Solutions", email = "info@ethiobiz.et" }
 ]
 description = "Property Management Solution"
 requires-python = ">=3.10"

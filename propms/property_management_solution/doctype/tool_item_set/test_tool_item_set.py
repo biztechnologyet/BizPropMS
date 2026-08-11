@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Aakvatech and Contributors
+# Copyright (c) 2021, Biz Technology Solutions and Contributors
 # See license.txt
 
 # import frappe

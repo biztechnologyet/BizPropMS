@@ -23,6 +23,6 @@
    "email_by_role": "Analytics"
   }
  ],
- "sender_email": "notification@aakvatech.com",
+ "sender_email": "notification@ethiobiz.et",
  "subject": "{{ doc.name }} Daily Checkup Report"
 }

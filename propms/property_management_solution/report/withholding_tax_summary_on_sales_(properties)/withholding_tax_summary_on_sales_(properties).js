@@ -1,4 +1,4 @@
-// Copyright (c) 2016, Aakvatech
+// Copyright (c) 2016, Biz Technology Solutions
 // For license information, please see license.txt
 /* eslint-disable */
 
