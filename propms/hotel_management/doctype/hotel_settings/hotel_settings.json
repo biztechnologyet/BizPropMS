@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "creation": "2026-08-20 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "company",
+  "default_currency",
+  "column_break_general",
+  "cost_center",
+  "hotel_property",
+  "pricing_section",
+  "room_charge_item",
+  "column_break_pricing",
+  "breakfast_item",
+  "late_checkout_item",
+  "tax_template",
+  "checkin_section",
+  "default_check_in_time",
+  "default_check_out_time",
+  "column_break_checkin",
+  "late_checkout_hours",
+  "early_checkin_hours",
+  "overbooking_buffer",
+  "booking_section",
+  "min_checkin_age",
+  "column_break_booking",
+  "auto_update_room_status",
+  "auto_create_housekeeping",
+  "auto_settle_folio"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "USD",
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Default Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "hotel_property",
+   "fieldtype": "Link",
+   "label": "Hotel Property",
+   "options": "Property",
+   "description": "Root property representing this hotel"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing & Items"
+  },
+  {
+   "fieldname": "room_charge_item",
+   "fieldtype": "Link",
+   "label": "Room Charge Item",
+   "options": "Item",
+   "reqd": 1,
+   "description": "ERPNext Item used for room charges on invoices"
+  },
+  {
+   "fieldname": "column_break_pricing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "breakfast_item",
+   "fieldtype": "Link",
+   "label": "Breakfast Item",
+   "options": "Item",
+   "description": "ERPNext Item for breakfast charges"
+  },
+  {
+   "fieldname": "late_checkout_item",
+   "fieldtype": "Link",
+   "label": "Late Checkout Item",
+   "options": "Item",
+   "description": "ERPNext Item for late checkout fees"
+  },
+  {
+   "fieldname": "tax_template",
+   "fieldtype": "Link",
+   "label": "Default Tax Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "checkin_section",
+   "fieldtype": "Section Break",
+   "label": "Check-In / Check-Out"
+  },
+  {
+   "default": "14:00",
+   "fieldname": "default_check_in_time",
+   "fieldtype": "Time",
+   "label": "Default Check-In Time"
+  },
+  {
+   "default": "12:00",
+   "fieldname": "default_check_out_time",
+   "fieldtype": "Time",
+   "label": "Default Check-Out Time"
+  },
+  {
+   "fieldname": "column_break_checkin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2",
+   "fieldname": "late_checkout_hours",
+   "fieldtype": "Int",
+   "label": "Late Checkout Grace Hours",
+   "description": "Hours after check-out before late fee applies"
+  },
+  {
+   "default": "2",
+   "fieldname": "early_checkin_hours",
+   "fieldtype": "Int",
+   "label": "Early Check-In Grace Hours",
+   "description": "Hours before check-in time allowed without fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "overbooking_buffer",
+   "fieldtype": "Int",
+   "label": "Overbooking Buffer %",
+   "description": "Percentage buffer for overbooking tolerance"
+  },
+  {
+   "fieldname": "booking_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Automation"
+  },
+  {
+   "default": "18",
+   "fieldname": "min_checkin_age",
+   "fieldtype": "Int",
+   "label": "Minimum Check-In Age"
+  },
+  {
+   "fieldname": "column_break_booking",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_update_room_status",
+   "fieldtype": "Check",
+   "label": "Auto Update Room Status on Booking"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_housekeeping",
+   "fieldtype": "Check",
+   "label": "Auto Create Housekeeping on Checkout"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_settle_folio",
+   "fieldtype": "Check",
+   "label": "Auto Settle Folio on Checkout"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-08-20 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Hotel Management",
+ "name": "Hotel Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

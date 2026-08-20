@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"hm_header1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Hotel Operations Dashboard</b></span>\",\"col\":12}},{\"id\":\"hm_shortcut_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Quick Actions</span>\",\"col\":12}},{\"id\":\"hm_avail\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Available Rooms\",\"col\":4}},{\"id\":\"hm_occ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupied Rooms\",\"col\":4}},{\"id\":\"hm_res\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reserved Rooms\",\"col\":4}},{\"id\":\"hm_hk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Housekeeping\",\"col\":4}},{\"id\":\"hm_book\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Bookings\",\"col\":4}},{\"id\":\"hm_guest\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Guest Profiles\",\"col\":4}},{\"id\":\"hm_folio\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Folios\",\"col\":4}},{\"id\":\"hm_masters_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Masters & Setup</span>\",\"col\":12}},{\"id\":\"hm_shortcut1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Types\",\"col\":4}},{\"id\":\"hm_shortcut2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rate Plans\",\"col\":4}},{\"id\":\"hm_shortcut3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Amenities\",\"col\":4}}]",
+ "content": "[{\"id\":\"hm_h1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Hotel Multi-Property Operations Dashboard</b></span>\",\"col\":12}},{\"id\":\"hm_qa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Quick Operations & Live Status</span>\",\"col\":12}},{\"id\":\"hm_s1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Available Rooms\",\"col\":4}},{\"id\":\"hm_s2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupied Rooms\",\"col\":4}},{\"id\":\"hm_s3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reserved Rooms\",\"col\":4}},{\"id\":\"hm_s4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rooms Out of Order\",\"col\":4}},{\"id\":\"hm_s5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Housekeeping\",\"col\":4}},{\"id\":\"hm_s6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"In Progress Housekeeping\",\"col\":4}},{\"id\":\"hm_s7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Maintenance Issues\",\"col\":4}},{\"id\":\"hm_s8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Urgent Maintenance Issues\",\"col\":4}},{\"id\":\"hm_s9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Bookings\",\"col\":4}},{\"id\":\"hm_s10\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checked In Today\",\"col\":4}},{\"id\":\"hm_s11\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Checked Out Today\",\"col\":4}},{\"id\":\"hm_s12\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Folios\",\"col\":4}},{\"id\":\"hm_s13\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Paid Folios\",\"col\":4}},{\"id\":\"hm_s14\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Material Requests\",\"col\":4}},{\"id\":\"hm_ql1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Quick Lists</span>\",\"col\":12}},{\"id\":\"hm_ql_room\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Rooms\",\"col\":4}},{\"id\":\"hm_ql_book\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Bookings\",\"col\":4}},{\"id\":\"hm_ql_hk\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Housekeeping Tasks\",\"col\":4}},{\"id\":\"hm_ql_iss\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Maintenance Issues\",\"col\":4}},{\"id\":\"hm_ql_stock\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Stock Entries\",\"col\":4}}]",
  "creation": "2026-08-20 15:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -9,85 +9,67 @@
  "hide_custom": 0,
  "icon": "hotel",
  "idx": 0,
+ "indicator_color": "",
  "is_hidden": 0,
  "label": "Hotel Management",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Front Desk",
+   "label": "Front Desk & Reservations",
    "link_count": 4,
    "link_type": "DocType",
-   "onboard": 0,
+   "onboard": 1,
    "type": "Card Break"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Room Booking",
+   "label": "Room Bookings",
+   "link_count": 0,
    "link_to": "Room Booking",
    "link_type": "DocType",
    "onboard": 1,
+   "only_for": "",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Room",
+   "label": "Rooms",
+   "link_count": 0,
    "link_to": "Room",
    "link_type": "DocType",
    "onboard": 1,
+   "only_for": "",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Guest Profile",
+   "label": "Guest Profiles",
+   "link_count": 0,
    "link_to": "Guest Profile",
    "link_type": "DocType",
    "onboard": 1,
+   "only_for": "",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Folio",
+   "label": "Folios",
+   "link_count": 0,
    "link_to": "Folio",
    "link_type": "DocType",
    "onboard": 0,
+   "only_for": "",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Operations",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Housekeeping Task",
-   "link_to": "Housekeeping Task",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Folio Item",
-   "link_to": "Folio Item",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Masters & Setup",
+   "label": "Housekeeping & Daily Operations",
    "link_count": 3,
    "link_type": "DocType",
    "onboard": 0,
@@ -96,41 +78,283 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Room Type",
-   "link_to": "Room Type",
+   "label": "Housekeeping Tasks",
+   "link_count": 0,
+   "link_to": "Housekeeping Task",
    "link_type": "DocType",
    "onboard": 1,
+   "only_for": "",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Rate Plan",
-   "link_to": "Rate Plan",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Room Amenity",
-   "link_to": "Room Amenity",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Hotel Reports",
+   "label": "Daily Checklists",
    "link_count": 0,
+   "link_to": "Daily Checklist",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Checklist Areas",
+   "link_count": 0,
+   "link_to": "Checklist Checkup Area",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance & Engineering",
+   "link_count": 6,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance Issues",
+   "link_count": 0,
+   "link_to": "Issue",
+   "link_type": "DocType",
+   "onboard": 1,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Maintenance",
+   "link_count": 0,
+   "link_to": "Asset Maintenance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Maintenance Logs",
+   "link_count": 0,
+   "link_to": "Asset Maintenance Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fixed Assets",
+   "link_count": 0,
+   "link_to": "Asset",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance Tools",
+   "link_count": 0,
+   "link_to": "Tool Item Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tool Sets",
+   "link_count": 0,
+   "link_to": "Tool Item Set",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Inventory & Hotel Supplies",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Stock Entries",
+   "link_count": 0,
+   "link_to": "Stock Entry",
+   "link_type": "DocType",
+   "onboard": 1,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Material Requests",
+   "link_count": 0,
+   "link_to": "Material Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Items & Amenities",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Warehouses",
+   "link_count": 0,
+   "link_to": "Warehouse",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Orders",
+   "link_count": 0,
+   "link_to": "Purchase Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Finance & Billing",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Invoices",
+   "link_count": 0,
+   "link_to": "Sales Invoice",
+   "link_type": "DocType",
+   "onboard": 1,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payment Entries",
+   "link_count": 0,
+   "link_to": "Payment Entry",
+   "link_type": "DocType",
+   "onboard": 1,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Folio Items",
+   "link_count": 0,
+   "link_to": "Folio Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Journal Entries",
+   "link_count": 0,
+   "link_to": "Journal Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Masters & Settings",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Types",
+   "link_count": 0,
+   "link_to": "Room Type",
+   "link_type": "DocType",
+   "onboard": 1,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rate Plans",
+   "link_count": 0,
+   "link_to": "Rate Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Amenities",
+   "link_count": 0,
+   "link_to": "Room Amenity",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hotel Settings",
+   "link_count": 0,
+   "link_to": "Hotel Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Link"
   }
  ],
- "modified": "2026-08-20 15:00:00.000000",
+ "modified": "2026-08-20 18:00:00.000000",
  "modified_by": "Administrator",
  "module": "Hotel Management",
  "name": "Hotel Management",
@@ -138,16 +362,36 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Room",
+   "label": "Rooms",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Room Booking",
+   "label": "Bookings",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Housekeeping Task",
+   "label": "Housekeeping Tasks",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Issue",
+   "label": "Maintenance Issues",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Stock Entry",
+   "label": "Stock Entries",
+   "quick_list_filter": "[]"
+  }
+ ],
  "roles": [],
  "sequence_id": 365.0,
  "shortcuts": [
-  {
-   "doc_view": "List",
-   "label": "Room Bookings",
-   "link_to": "Room Booking",
-   "type": "DocType"
-  },
   {
    "color": "Green",
    "doc_view": "List",
@@ -175,18 +419,68 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "Rooms Out of Order",
+   "link_to": "Room",
+   "stats_filter": "[[\"Room\",\"status\",\"=\",\"OutOfOrder\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Pending Housekeeping",
    "link_to": "Housekeeping Task",
    "stats_filter": "[[\"Housekeeping Task\",\"status\",\"=\",\"Pending\",false]]",
    "type": "DocType"
   },
   {
+   "color": "Blue",
    "doc_view": "List",
-   "label": "Guest Profiles",
-   "link_to": "Guest Profile",
+   "label": "In Progress Housekeeping",
+   "link_to": "Housekeeping Task",
+   "stats_filter": "[[\"Housekeeping Task\",\"status\",\"=\",\"In Progress\",false]]",
    "type": "DocType"
   },
   {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Open Maintenance Issues",
+   "link_to": "Issue",
+   "stats_filter": "[[\"Issue\",\"status\",\"=\",\"Open\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Urgent Maintenance Issues",
+   "link_to": "Issue",
+   "stats_filter": "[[\"Issue\",\"priority\",\"=\",\"Urgent\",false]]",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Room Bookings",
+   "link_to": "Room Booking",
+   "stats_filter": "[[\"Room Booking\",\"booking_status\",\"=\",\"Confirmed\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Checked In Today",
+   "link_to": "Room Booking",
+   "stats_filter": "[[\"Room Booking\",\"booking_status\",\"=\",\"Checked-In\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Checked Out Today",
+   "link_to": "Room Booking",
+   "stats_filter": "[[\"Room Booking\",\"booking_status\",\"=\",\"Checked-Out\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
    "doc_view": "List",
    "label": "Open Folios",
    "link_to": "Folio",
@@ -196,14 +490,17 @@
   {
    "color": "Green",
    "doc_view": "List",
-   "label": "Room Types",
-   "link_to": "Room Type",
+   "label": "Paid Folios",
+   "link_to": "Folio",
+   "stats_filter": "[[\"Folio\",\"payment_status\",\"=\",\"Paid\",false]]",
    "type": "DocType"
   },
   {
+   "color": "Orange",
    "doc_view": "List",
-   "label": "Rate Plans",
-   "link_to": "Rate Plan",
+   "label": "Pending Material Requests",
+   "link_to": "Material Request",
+   "stats_filter": "[[\"Material Request\",\"status\",\"=\",\"Pending\",false]]",
    "type": "DocType"
   }
  ],

@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "folio_id",
+  "company",
   "guest",
   "booking",
   "room",
@@ -31,6 +32,17 @@
    "unique": 1
   },
   {
+   "fetch_from": "booking.company",
+   "fetch_if_empty": 1,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
    "fieldname": "guest",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -43,6 +55,7 @@
    "fieldname": "booking",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Booking",
    "options": "Room Booking",
    "reqd": 1
@@ -51,6 +64,7 @@
    "fieldname": "room",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Room",
    "options": "Room",
    "reqd": 1
@@ -64,6 +78,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Open\nSettled\nClosed",
    "reqd": 1
@@ -73,6 +88,7 @@
    "fieldname": "payment_status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Payment Status",
    "options": "Unpaid\nPartial\nPaid",
    "read_only": 1
@@ -126,7 +142,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-01-01 00:00:00.000000",
+ "modified": "2026-08-20 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Hotel Management",
  "name": "Folio",
@@ -160,7 +176,7 @@
    "write": 1
   }
  ],
- "search_fields": "guest,booking,room",
+ "search_fields": "guest,booking,room,company",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "guest",
