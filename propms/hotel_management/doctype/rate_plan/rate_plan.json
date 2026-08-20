@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "plan_name",
+  "room_type",
+  "rate_type",
+  "rate_value",
+  "column_break_basic",
+  "valid_from",
+  "valid_to",
+  "is_active",
+  "section_break_stay",
+  "min_stay_nights",
+  "max_stay_nights",
+  "column_break_stay",
+  "priority"
+ ],
+ "fields": [
+  {
+   "fieldname": "plan_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plan Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room Type",
+   "options": "Room Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Rate Type",
+   "options": "Fixed\nPercentage",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate Value",
+   "options": "Company:default_currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Valid From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Valid To",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_stay",
+   "fieldtype": "Section Break",
+   "label": "Stay Requirements"
+  },
+  {
+   "fieldname": "min_stay_nights",
+   "fieldtype": "Int",
+   "label": "Min Stay Nights"
+  },
+  {
+   "fieldname": "max_stay_nights",
+   "fieldtype": "Int",
+   "label": "Max Stay Nights"
+  },
+  {
+   "fieldname": "column_break_stay",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Hotel Management",
+ "name": "Rate Plan",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Hotel Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "plan_name",
+ "track_changes": 1
+}

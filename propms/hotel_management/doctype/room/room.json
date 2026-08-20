@@ -1,0 +1,171 @@
+{
+ "actions": [],
+ "autoname": "field:room_number",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "room_number",
+  "property",
+  "room_type",
+  "column_break_identification",
+  "floor",
+  "wing",
+  "section_break_status",
+  "status",
+  "housekeeping_status",
+  "column_break_status",
+  "current_guest",
+  "current_booking",
+  "section_break_maintenance",
+  "last_cleaned",
+  "notes",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "room_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Room Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Room Type",
+   "options": "Room Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_identification",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Int",
+   "label": "Floor"
+  },
+  {
+   "fieldname": "wing",
+   "fieldtype": "Data",
+   "label": "Wing"
+  },
+  {
+   "bold": 1,
+   "fieldname": "section_break_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nOccupied\nReserved\nOutOfOrder\nUnderMaintenance",
+   "reqd": 1
+  },
+  {
+   "default": "Clean",
+   "fieldname": "housekeeping_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Housekeeping Status",
+   "options": "Dirty\nClean\nInspected",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_guest",
+   "fieldtype": "Link",
+   "label": "Current Guest",
+   "options": "Guest Profile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_booking",
+   "fieldtype": "Link",
+   "label": "Current Booking",
+   "options": "Room Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_maintenance",
+   "fieldtype": "Section Break",
+   "label": "Maintenance"
+  },
+  {
+   "fieldname": "last_cleaned",
+   "fieldtype": "Datetime",
+   "label": "Last Cleaned"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Hotel Management",
+ "name": "Room",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Hotel Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "room_number,property,room_type",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "room_number",
+ "track_changes": 1
+}

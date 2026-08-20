@@ -140,6 +140,7 @@ scheduler_events = {
         # "00 12 * * *": ["propms.lease_invoice.leaseInvoiceAutoCreate"],
         "00 00 * * *": ["propms.lease_invoice_schedule.make_lease_invoice_schedule"],
         "00 12 * * *": ["propms.lease_invoice.enqueue_lease_invoice_auto_create"],
+        "03 00 * * *": ["propms.hotel_management.night_audit.execute_night_audit"],
     }
 }
 
