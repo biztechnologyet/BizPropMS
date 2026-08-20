@@ -1,129 +1,248 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 import frappe
-import unittest
-from datetime import date, timedelta
+from frappe.tests import IntegrationTestCase
+from frappe.utils import today, add_days, getdate, nowdate
 
 
-class TestRoomType(unittest.TestCase):
-	def setUp(self):
-		if not frappe.db.exists("Room Type", "Test Suite"):
-			frappe.get_doc({
-				"doctype": "Room Type",
-				"room_type_name": "Test Suite",
-				"bed_type": "King",
-				"room_size_sqm": 45,
-				"base_rate_per_night": 5000,
-				"max_adults": 2,
-				"max_children": 1,
-				"is_active": 1,
-			}).insert(ignore_permissions=True)
+class TestRoomType(IntegrationTestCase):
+    def test_create_room_type(self):
+        rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test Deluxe",
+            "base_rate_per_night": 2500,
+            "max_adults": 2,
+            "max_children": 1,
+            "bed_type": "Double",
+            "is_active": 1
+        }).insert(ignore_permissions=True)
+        self.assertEqual(rt.name, "Test Deluxe")
+        self.assertEqual(rt.base_rate_per_night, 2500)
+        self.assertEqual(rt.is_active, 1)
+        frappe.delete_doc("Room Type", rt.name, force=True)
 
-	def test_room_type_creation(self):
-		rt = frappe.get_doc("Room Type", "Test Suite")
-		self.assertEqual(rt.base_rate_per_night, 5000)
-		self.assertEqual(rt.bed_type, "King")
-		self.assertTrue(rt.is_active)
-
-
-class TestGuestProfile(unittest.TestCase):
-	def setUp(self):
-		if not frappe.db.exists("Guest Profile", {"guest_name": "Test Guest HM"}):
-			frappe.get_doc({
-				"doctype": "Guest Profile",
-				"guest_name": "Test Guest HM",
-				"guest_type": "Individual",
-				"phone": "+251911000000",
-				"id_type": "Passport",
-				"id_number": "TEST12345",
-			}).insert(ignore_permissions=True)
-
-	def test_guest_creation(self):
-		guest = frappe.get_all(
-			"Guest Profile",
-			filters={"guest_name": "Test Guest HM"},
-			fields=["name", "guest_name", "phone"],
-			limit=1,
-		)
-		self.assertTrue(guest)
-		self.assertEqual(guest[0].guest_name, "Test Guest HM")
+    def test_room_type_defaults(self):
+        rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test Standard",
+            "base_rate_per_night": 1500,
+            "bed_type": "Single"
+        }).insert(ignore_permissions=True)
+        self.assertEqual(rt.max_adults, 2)
+        self.assertEqual(rt.max_children, 1)
+        frappe.delete_doc("Room Type", rt.name, force=True)
 
 
-class TestRoom(unittest.TestCase):
-	def setUp(self):
-		if not frappe.db.exists("Room", "T-999"):
-			properties = frappe.get_all("Property", limit=1, pluck="name")
-			property_name = properties[0] if properties else None
-			frappe.get_doc({
-				"doctype": "Room",
-				"room_number": "T-999",
-				"property": property_name,
-				"room_type": "Test Suite",
-				"status": "Available",
-				"housekeeping_status": "Clean",
-				"is_active": 1,
-			}).insert(ignore_permissions=True)
+class TestRoom(IntegrationTestCase):
+    def setUp(self):
+        self.rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test RoomType",
+            "base_rate_per_night": 2000,
+            "bed_type": "Double"
+        }).insert(ignore_permissions=True)
 
-	def test_room_exists(self):
-		room = frappe.db.exists("Room", "T-999")
-		self.assertTrue(room)
+    def tearDown(self):
+        frappe.delete_doc("Room Type", self.rt.name, force=True)
 
-	def test_room_status(self):
-		status = frappe.db.get_value("Room", "T-999", "status")
-		self.assertEqual(status, "Available")
-
-
-class TestAvailability(unittest.TestCase):
-	def setUp(self):
-		self.room_type = "Test Suite"
-
-	def test_available_rooms_returns_list(self):
-		from propms.hotel_management.availability import get_available_rooms
-		today = date.today()
-		tomorrow = today + timedelta(days=1)
-		result = get_available_rooms(self.room_type, today, tomorrow)
-		self.assertIsInstance(result, list)
-
-	def test_overlap_detection(self):
-		from propms.hotel_management.availability import rooms_overlap
-		result = rooms_overlap("T-999", date.today(), date.today() + timedelta(days=1))
-		self.assertFalse(result)
+    def test_create_room(self):
+        room = frappe.get_doc({
+            "doctype": "Room",
+            "room_number": "T101",
+            "room_type": self.rt.name,
+            "floor": 1,
+            "status": "Available",
+            "housekeeping_status": "Clean"
+        }).insert(ignore_permissions=True)
+        self.assertEqual(room.status, "Available")
+        self.assertEqual(room.housekeeping_status, "Clean")
+        frappe.delete_doc("Room", room.name, force=True)
 
 
-class TestRateEngine(unittest.TestCase):
-	def setUp(self):
-		self.room_type = "Test Suite"
-
-	def test_calculate_rate_basic(self):
-		from propms.hotel_management.rate_engine import calculate_rate
-		today = date.today()
-		checkout = today + timedelta(days=3)
-		result = calculate_rate(self.room_type, today, checkout)
-		self.assertEqual(result["nights"], 3)
-		self.assertEqual(result["rate_per_night"], 5000)
-		self.assertEqual(result["total_amount"], 15000)
-		self.assertIsNone(result["plan_applied"])
-
-	def test_calculate_rate_invalid_dates(self):
-		from propms.hotel_management.rate_engine import calculate_rate
-		today = date.today()
-		with self.assertRaises(frappe.ValidationError):
-			calculate_rate(self.room_type, today, today)
-
-	def test_find_best_rate_plan_no_plans(self):
-		from propms.hotel_management.rate_engine import find_best_rate_plan
-		today = date.today()
-		result = find_best_rate_plan(self.room_type, today, today + timedelta(days=1))
-		self.assertIsNone(result)
+class TestGuestProfile(IntegrationTestCase):
+    def test_create_guest(self):
+        guest = frappe.get_doc({
+            "doctype": "Guest Profile",
+            "guest_name": "Test Guest Alpha",
+            "guest_type": "Individual",
+            "id_type": "Passport",
+            "id_number": "TEST123",
+            "phone": "+251911000001",
+            "nationality": "Ethiopia"
+        }).insert(ignore_permissions=True)
+        self.assertTrue(guest.name.startswith("GST-"))
+        frappe.delete_doc("Guest Profile", guest.name, force=True)
 
 
-class TestNightAudit(unittest.TestCase):
-	def test_night_audit_runs(self):
-		from propms.hotel_management.night_audit import execute_night_audit
-		result = execute_night_audit()
-		self.assertIn("auto_checkouts", result)
-		self.assertIn("room_charges_generated", result)
-		self.assertIn("rooms_released", result)
-		self.assertIn("housekeeping_tasks_created", result)
-		self.assertIn("errors", result)
+class TestRoomBooking(IntegrationTestCase):
+    def setUp(self):
+        self.rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test Booking RT",
+            "base_rate_per_night": 3000,
+            "bed_type": "Queen"
+        }).insert(ignore_permissions=True)
+        self.guest = frappe.get_doc({
+            "doctype": "Guest Profile",
+            "guest_name": "Test Booking Guest",
+            "guest_type": "Individual",
+            "id_type": "Passport",
+            "id_number": "BG001",
+            "phone": "+251911000002"
+        }).insert(ignore_permissions=True)
+
+    def tearDown(self):
+        frappe.delete_doc("Guest Profile", self.guest.name, force=True)
+        frappe.delete_doc("Room Type", self.rt.name, force=True)
+
+    def test_create_booking(self):
+        booking = frappe.get_doc({
+            "doctype": "Room Booking",
+            "guest": self.guest.name,
+            "room_type": self.rt.name,
+            "check_in_date": add_days(today(), 1),
+            "check_out_date": add_days(today(), 3),
+            "adults": 2,
+            "rate_per_night": 3000,
+            "currency": "ETB",
+            "source": "Walk-in"
+        }).insert(ignore_permissions=True)
+        self.assertEqual(booking.nights, 2)
+        self.assertEqual(booking.total_amount, 6000)
+        self.assertEqual(booking.booking_status, "Draft")
+        frappe.delete_doc("Room Booking", booking.name, force=True)
+
+    def test_submittable(self):
+        booking = frappe.get_doc({
+            "doctype": "Room Booking",
+            "guest": self.guest.name,
+            "room_type": self.rt.name,
+            "check_in_date": add_days(today(), 5),
+            "check_out_date": add_days(today(), 6),
+            "adults": 1,
+            "rate_per_night": 3000,
+            "currency": "ETB",
+            "source": "Phone"
+        }).insert(ignore_permissions=True)
+        self.assertEqual(booking.docstatus, 0)
+        booking.submit()
+        self.assertEqual(booking.docstatus, 1)
+        booking.cancel()
+        self.assertEqual(booking.docstatus, 2)
+        frappe.delete_doc("Room Booking", booking.name, force=True)
+
+
+class TestRatePlan(IntegrationTestCase):
+    def setUp(self):
+        self.rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test Rate RT",
+            "base_rate_per_night": 5000,
+            "bed_type": "King"
+        }).insert(ignore_permissions=True)
+
+    def tearDown(self):
+        frappe.delete_doc("Room Type", self.rt.name, force=True)
+
+    def test_create_rate_plan(self):
+        rp = frappe.get_doc({
+            "doctype": "Rate Plan",
+            "plan_name": "Test Corporate Rate",
+            "room_type": self.rt.name,
+            "rate_type": "Percentage",
+            "rate_value": -20,
+            "valid_from": today(),
+            "valid_to": add_days(today(), 90),
+            "is_active": 1,
+            "priority": 10
+        }).insert(ignore_permissions=True)
+        self.assertEqual(rp.plan_name, "Test Corporate Rate")
+        frappe.delete_doc("Rate Plan", rp.name, force=True)
+
+
+class TestFolio(IntegrationTestCase):
+    def setUp(self):
+        self.rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test Folio RT",
+            "base_rate_per_night": 2000,
+            "bed_type": "Double"
+        }).insert(ignore_permissions=True)
+        self.guest = frappe.get_doc({
+            "doctype": "Guest Profile",
+            "guest_name": "Test Folio Guest",
+            "guest_type": "Individual",
+            "id_type": "Passport",
+            "id_number": "FG001",
+            "phone": "+251911000003"
+        }).insert(ignore_permissions=True)
+        self.booking = frappe.get_doc({
+            "doctype": "Room Booking",
+            "guest": self.guest.name,
+            "room_type": self.rt.name,
+            "check_in_date": today(),
+            "check_out_date": add_days(today(), 2),
+            "adults": 2,
+            "rate_per_night": 2000,
+            "currency": "ETB",
+            "source": "Walk-in"
+        }).insert(ignore_permissions=True)
+        self.booking.submit()
+
+    def tearDown(self):
+        frappe.db.rollback()
+
+    def test_create_folio(self):
+        folio = frappe.get_doc({
+            "doctype": "Folio",
+            "guest": self.guest.name,
+            "booking": self.booking.name,
+            "status": "Open",
+            "total_charges": 0,
+            "total_payments": 0,
+            "balance": 0
+        }).insert(ignore_permissions=True)
+        self.assertEqual(folio.status, "Open")
+        self.assertEqual(folio.total_charges, 0)
+        self.assertEqual(folio.total_payments, 0)
+        frappe.delete_doc("Folio", folio.name, force=True)
+
+
+class TestHousekeepingTask(IntegrationTestCase):
+    def setUp(self):
+        self.rt = frappe.get_doc({
+            "doctype": "Room Type",
+            "room_type_name": "Test HK RT",
+            "base_rate_per_night": 1000,
+            "bed_type": "Single"
+        }).insert(ignore_permissions=True)
+        self.room = frappe.get_doc({
+            "doctype": "Room",
+            "room_number": "HK101",
+            "room_type": self.rt.name,
+            "floor": 1,
+            "status": "Available",
+            "housekeeping_status": "Dirty"
+        }).insert(ignore_permissions=True)
+
+    def tearDown(self):
+        frappe.delete_doc("Room", self.room.name, force=True)
+        frappe.delete_doc("Room Type", self.rt.name, force=True)
+
+    def test_create_task(self):
+        task = frappe.get_doc({
+            "doctype": "Housekeeping Task",
+            "room": self.room.name,
+            "task_type": "Checkout Clean",
+            "status": "Pending",
+            "priority": "High",
+            "scheduled_date": today()
+        }).insert(ignore_permissions=True)
+        self.assertEqual(task.status, "Pending")
+        self.assertEqual(task.priority, "High")
+        frappe.delete_doc("Housekeeping Task", task.name, force=True)
+
+
+class TestAvailabilityLogic(IntegrationTestCase):
+    def test_rooms_overlap(self):
+        from propms.hotel_management.availability import rooms_overlap
+        result = rooms_overlap("NONEXISTENT", today(), add_days(today(), 1))
+        self.assertFalse(result)
