@@ -1,0 +1,191 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"hm_header1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Hotel Operations Dashboard</b></span>\",\"col\":12}},{\"id\":\"hm_shortcut_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Quick Actions</span>\",\"col\":12}},{\"id\":\"hm_avail\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Available Rooms\",\"col\":4}},{\"id\":\"hm_occ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupied Rooms\",\"col\":4}},{\"id\":\"hm_res\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reserved Rooms\",\"col\":4}},{\"id\":\"hm_hk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Housekeeping\",\"col\":4}},{\"id\":\"hm_book\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Bookings\",\"col\":4}},{\"id\":\"hm_guest\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Guest Profiles\",\"col\":4}},{\"id\":\"hm_folio\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Folios\",\"col\":4}},{\"id\":\"hm_masters_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Masters & Setup</span>\",\"col\":12}},{\"id\":\"hm_shortcut1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Types\",\"col\":4}},{\"id\":\"hm_shortcut2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Rate Plans\",\"col\":4}},{\"id\":\"hm_shortcut3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Amenities\",\"col\":4}}]",
+ "creation": "2026-08-20 15:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "hotel",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Hotel Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Front Desk",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Booking",
+   "link_to": "Room Booking",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room",
+   "link_to": "Room",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Guest Profile",
+   "link_to": "Guest Profile",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Folio",
+   "link_to": "Folio",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Housekeeping Task",
+   "link_to": "Housekeeping Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Masters",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Type",
+   "link_to": "Room Type",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Amenity",
+   "link_to": "Room Amenity",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rate Plan",
+   "link_to": "Rate Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-20 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Hotel Management",
+ "name": "Hotel Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 400.0,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Room Bookings",
+   "link_to": "Room Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Available Rooms",
+   "link_to": "Room",
+   "stats_filter": "[[\"Room\",\"status\",\"=\",\"Available\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Occupied Rooms",
+   "link_to": "Room",
+   "stats_filter": "[[\"Room\",\"status\",\"=\",\"Occupied\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Reserved Rooms",
+   "link_to": "Room",
+   "stats_filter": "[[\"Room\",\"status\",\"=\",\"Reserved\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Pending Housekeeping",
+   "link_to": "Housekeeping Task",
+   "stats_filter": "[[\"Housekeeping Task\",\"status\",\"=\",\"Pending\",false]]",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Guest Profiles",
+   "link_to": "Guest Profile",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Open Folios",
+   "link_to": "Folio",
+   "stats_filter": "[[\"Folio\",\"status\",\"=\",\"Open\",false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Room Types",
+   "link_to": "Room Type",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Rate Plans",
+   "link_to": "Rate Plan",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Room Amenities",
+   "link_to": "Room Amenity",
+   "type": "DocType"
+  }
+ ],
+ "title": "Hotel Management"
+}
